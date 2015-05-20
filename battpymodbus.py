@@ -1,4 +1,4 @@
-#This file extract all the data relevant to Lithium Ion Battery/Lead Acid Battery by modbus TCP/IP.
+# This file extract all the data relevant to Lithium Ion Battery/Lead Acid Battery by modbus TCP/IP.
 __author__ = 'alvin'
 
 import time
@@ -8,112 +8,120 @@ from pymodbus3.client.sync import ModbusTcpClient
 client = ModbusTcpClient('192.168.0.10')
 
 
-class battery():    
+class battery():
     def battery1_inarray(self):
-        #Lithium Ion Battery 1 Read Array  - Register %MW10965:20
-        lithiumlist = client.read_holding_registers(10965, 20, unit=1)  #read_holding_registers(address, count=1, **kwargs)
-        #print("Lithium Array: " +str(lithiumlist.registers))
-        
-        #Battr1_V1_R - Register 4
+        # Lithium Ion Battery 1 Read Array  - Register %MW10965:20
+        lithiumlist = client.read_holding_registers(10965, 20,
+                                                    unit=1)  # read_holding_registers(address, count=1, **kwargs)
+        # print("Lithium Array: " +str(lithiumlist.registers))
+
+        # Battr1_V1_R - Register 4
         self.Battr1_V1_R = lithiumlist.registers[4]
-        
-        #Batt1_V1 - Register 5
+
+        # Batt1_V1 - Register 5
         self.Batt1_V1 = lithiumlist.registers[5]
-        
-        #Battr1_V2_R - Register 6
+
+        # Battr1_V2_R - Register 6
         self.Battr1_V2_R = lithiumlist.registers[6]
-        
-        #Battr1_V2 - Register 7
+
+        # Battr1_V2 - Register 7
         self.Battr1_V2 = lithiumlist.registers[7]
-        
-        #Battr1_C1_R - Register 8
+
+        # Battr1_C1_R - Register 8
         self.Battr1_C1_R = lithiumlist.registers[8]
-        
-        #Battr1_C1 - Register 9
+
+        # Battr1_C1 - Register 9
         self.Battr1_C1 = lithiumlist.registers[9]
-        
-        #Battr1_Coils_RW - Register 10
+
+        # Battr1_Coils_RW - Register 10
         self.Battr1_Coils_RW = lithiumlist.registers[10]
-        #print("Batt1_Coils_RW: " + str(self.Battr1_Coils_RW))
-        
-        #Battr1_Coils_R - Register 11
+        # print("Batt1_Coils_RW: " + str(self.Battr1_Coils_RW))
+
+        # Battr1_Coils_R - Register 11
         self.Battr1_Coils_R = lithiumlist.registers[11]
-        #print("Batt1_Coils_R: " + str(self.Battr1_Coils_R))
-                       
-        #Battr1_Ref_Zero_C - Register 12
+        # print("Batt1_Coils_R: " + str(self.Battr1_Coils_R))
+
+        # Battr1_Ref_Zero_C - Register 12
         self.Battr1_Ref_Zero_C = lithiumlist.registers[12]
-        #print("Battr1_Ref_Zero_C: " + str(self.Battr1_Ref_Zero_C))
-        
-        #Battr1_Full_Chg_C - Register 13
+        # print("Battr1_Ref_Zero_C: " + str(self.Battr1_Ref_Zero_C))
+
+        # Battr1_Full_Chg_C - Register 13
         self.Battr1_Full_Chg_C = lithiumlist.registers[13]
-        #print("Battr1_Full_Chg_C: " + str(self.Battr1_Full_Chg_C))
-        
-        #Battr1_Hour - Register 14
+        # print("Battr1_Full_Chg_C: " + str(self.Battr1_Full_Chg_C))
+
+        # Battr1_Hour - Register 14
         self.Battr1_Hour = lithiumlist.registers[14]
-        #print("Battr1_Hour: " + str(self.Battr1_Hour))
-        
-        #Battr1_Min - Register 15
+        # print("Battr1_Hour: " + str(self.Battr1_Hour))
+
+        # Battr1_Min - Register 15
         self.Battr1_Min = lithiumlist.registers[15]
-        #print("Battr1_Min: " + str(self.Battr1_Min))
-        
-        #Battr1_Sec - Register 16            
+        # print("Battr1_Min: " + str(self.Battr1_Min))
+
+        # Battr1_Sec - Register 16
         self.Battr1_Sec = lithiumlist.registers[16]
-        #print("Battr1_Sec: " + str(self.Battr1_Sec))
-                       
-        #Battr1_Ref_V - Register 17
-        self.Battr1_Ref_V=lithiumlist.registers[17]
-        #print("Battr1_Ref_V: " +str(self.Battr1_Ref_V))          
-        self.Bat_1_Ref_Voltage_Read_SIGNED = round(self.Battr1_Ref_V /100, 2)
-        #print("Bat_1_Ref_Voltage_Read_SIGNED: " +str(self.Bat_1_Ref_Voltage_Read_SIGNED)) 
-        
-        #Battr1_Ref_I - Register 18  
-        self.Battr1_Ref_I=lithiumlist.registers[18]
-        #print("Batt1_Ref_I: " +str(self.Battr1_Ref_I))  
+        # print("Battr1_Sec: " + str(self.Battr1_Sec))
+
+        # Battr1_Ref_V - Register 17
+        self.Battr1_Ref_V = lithiumlist.registers[17]
+        # print("Battr1_Ref_V: " +str(self.Battr1_Ref_V))
+        self.Bat_1_Ref_Voltage_Read_SIGNED = round(self.Battr1_Ref_V / 100, 2)
+        # print("Bat_1_Ref_Voltage_Read_SIGNED: " +str(self.Bat_1_Ref_Voltage_Read_SIGNED))
+
+        # Battr1_Ref_I - Register 18
+        self.Battr1_Ref_I = lithiumlist.registers[18]
+        # print("Batt1_Ref_I: " +str(self.Battr1_Ref_I))
         self.Bat_1_Ref_Current_Read_SIGNED = round(self.Battr1_Ref_I - 5000, 2)
-        #print("Bat_1_Ref_Current_Read_SIGNED: " +str(self.Bat_1_Ref_Current_Read_SIGNED))
-        
-        #Battr1_Bus_V - Register 19
-        self.Battr1_Bus_V=lithiumlist.registers[19]      
-        #print("Batt1_Bus_V: " +str(self.Battr1_Bus_V))                                              
-        self.Bat_1_Bus_Voltage_Read_SIGNED = self.Battr1_Bus_V /100
-        #print("Bat_1_Ref_Voltage_Read_SIGNED: " +str(self.Bat_1_Bus_Voltage_Read_SIGNED)) 
-        
-        #Read coils status from registers, from Battr1_Coils_RW and Battr1_Coils_R                
-        if ((self.Battr1_Coils_RW & 2) == 0):    #check for 2th bits in Battr1_Coils_RW(Register 10975) - Bat_1_Coil_1 
+        # print("Bat_1_Ref_Current_Read_SIGNED: " +str(self.Bat_1_Ref_Current_Read_SIGNED))
+
+        # Battr1_Bus_V - Register 19
+        self.Battr1_Bus_V = lithiumlist.registers[19]
+        # print("Batt1_Bus_V: " +str(self.Battr1_Bus_V))
+        self.Bat_1_Bus_Voltage_Read_SIGNED = self.Battr1_Bus_V / 100
+        # print("Bat_1_Ref_Voltage_Read_SIGNED: " +str(self.Bat_1_Bus_Voltage_Read_SIGNED))
+
+        # Read coils status from registers, from Battr1_Coils_RW and Battr1_Coils_R
+        if ((self.Battr1_Coils_RW & 2) == 0):  # check for 2th bits in Battr1_Coils_RW(Register 10975) - Bat_1_Coil_1
             self.Bat_1_Coil_1 = 0
         elif ((self.Battr1_Coils_RW & 2) == 2):
             self.Bat_1_Coil_1 = 1
-        
-        if ((self.Battr1_Coils_R & 8) == 0):     #check for 4th bits in Battr1_Coils_R - Register 10976, coil 3 - Bat_1_Coil_11
+
+        if ((
+                self.Battr1_Coils_R & 8) == 0):  # check for 4th bits in Battr1_Coils_R - Register 10976, coil 3 - Bat_1_Coil_11
             self.Bat_1_Coil_11 = 0
         elif ((self.Battr1_Coils_R & 8) == 8):
             self.Bat_1_Coil_11 = 1
 
-        if ((self.Battr1_Coils_R & 16) == 0):     #check for 5th bits in Battr1_Coils_R- Register 10976, coil 4 - Bat_1_Coil_12
+        if ((
+                self.Battr1_Coils_R & 16) == 0):  # check for 5th bits in Battr1_Coils_R- Register 10976, coil 4 - Bat_1_Coil_12
             self.Bat_1_Coil_12 = 0
         elif ((self.Battr1_Coils_R & 16) == 16):
             self.Bat_1_Coil_12 = 1
-        
-        if ((self.Battr1_Coils_R & 32) == 0):     #check for 6th bits in Battr1_Coils_R- Register 10976, coil 5 - Bat_1_Coil_13
+
+        if ((
+                self.Battr1_Coils_R & 32) == 0):  # check for 6th bits in Battr1_Coils_R- Register 10976, coil 5 - Bat_1_Coil_13
             self.Bat_1_Coil_13 = 0
         elif ((self.Battr1_Coils_R & 32) == 32):
             self.Bat_1_Coil_13 = 1
-                    
-        if ((self.Battr1_Coils_R & 64) == 0):     #check for 7th bits in Battr1_Coils_R- Register 10976, coil 6 - Bat_1_Coil_14
+
+        if ((
+                self.Battr1_Coils_R & 64) == 0):  # check for 7th bits in Battr1_Coils_R- Register 10976, coil 6 - Bat_1_Coil_14
             self.Bat_1_Coil_14 = 0
         elif ((self.Battr1_Coils_R & 64) == 64):
             self.Bat_1_Coil_14 = 1
-          
-        if ((self.Battr1_Coils_R & 128) == 0):     #check for 8th bits in Battr1_Coils_R- Register 10976, coil 7 - Bat_Coil_15
+
+        if ((
+                self.Battr1_Coils_R & 128) == 0):  # check for 8th bits in Battr1_Coils_R- Register 10976, coil 7 - Bat_Coil_15
             self.Bat_1_Coil_15 = 0
         elif ((self.Battr1_Coils_R & 128) == 128):
-            self.Bat_1_Coil_15 = 1          
+            self.Bat_1_Coil_15 = 1
 
-        if ((self.Battr1_Coils_R & 2048) == 0):     #check for 8th bits in Battr1_Coils_R- Register 10976, coil 7 - Bat_Coil_19
+        if ((
+                self.Battr1_Coils_R & 2048) == 0):  # check for 8th bits in Battr1_Coils_R- Register 10976, coil 7 - Bat_Coil_19
             self.Bat_1_Coil_19 = 0
         elif ((self.Battr1_Coils_R & 2048) == 2048):
             self.Bat_1_Coil_19 = 1
-            
+
+
 '''       
 #-------------------------------------------------------------------------------------------------------------------------        
     #Panel5 DC1 RealArray (Lithium Ion Battery)      
@@ -266,13 +274,13 @@ def battery2_inarray(self):
         self.lithium_batt_soc = lithiumadd * 100.0
         #print("SOC: " +str(self.lithium_batt_soc) + "%")
        
-'''                
-#--------------------------------------------------------------------------------------------------------------------------------------   
-  
-#testing program to run this program individually
-#j=2          #loop of 2 times
-#while j:   
-#while True:    #infinite loop      
+'''
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+# testing program to run this program individually
+# j=2          #loop of 2 times
+# while j:
+# while True:    #infinite loop
 #    lithiumbatt.lithium_array() 
 #    lithiumbatt.panel5_dc1_real_array()
 #    time.sleep(2)       #Delay of 2 sec, ie 2 sec update
