@@ -1,6 +1,6 @@
 import time
 import math
-from pymodbus3.client.sync import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 
 client = ModbusTcpClient('192.168.0.10')
 

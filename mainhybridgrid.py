@@ -15,7 +15,7 @@ import PyQt5.QtWidgets
 from PyQt5.QtCore import QTimer
 
 # Set up Modbus Client
-from pymodbus3.client.sync import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 
 client = ModbusTcpClient('192.168.0.10')
 
@@ -182,11 +182,11 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
         if self.Bat_1_Coil_11 == 0:  # Check Bat_1_Coil_11 - Bat_1_ON_OFF
             self.batt1_on_off_indicator.setText('OFF')
             self.batt1_on_off_indicator.setStyleSheet(
-                "background-color: rgb(255, 0, 0);")  # set indicator to red colour
+                    "background-color: rgb(255, 0, 0);")  # set indicator to red colour
         if self.Bat_1_Coil_11 == 1:
             self.batt1_on_off_indicator.setText('ON')
             self.batt1_on_off_indicator.setStyleSheet(
-                "background-color: rgb(0, 255, 0);")  # set indicator to green colour
+                    "background-color: rgb(0, 255, 0);")  # set indicator to green colour
 
             # Update PV Status
             # Update Chnl 2 Operating State
@@ -200,11 +200,11 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
         if self.MPPT_2_Coil_11 == 0:  # MPPT_2_Coil_11 - MPPT_2_ON_OFF
             self.mppt_chnl2_on_off_indicator.setText('OFF')
             self.mppt_chnl2_on_off_indicator.setStyleSheet(
-                "background-color: rgb(255, 0, 0);")  # set indicator to red colour
+                    "background-color: rgb(255, 0, 0);")  # set indicator to red colour
         if self.MPPT_2_Coil_11 == 1:
             self.mppt_chnl2_on_off_indicator.setText('ON')
             self.mppt_chnl2_on_off_indicator.setStyleSheet(
-                "background-color: rgb(0, 255, 0);")  # set indicator to green colour
+                    "background-color: rgb(0, 255, 0);")  # set indicator to green colour
             # Update Chnl 3 Operating State
         if self.MPPT_3_Coil_15 == 1:  # check MPPT_3_Coil_15 - MPPT_3_MPPT
             self.mppt_chnl3_operating_state.setText("MPPT")
@@ -216,11 +216,11 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
         if self.MPPT_3_Coil_11 == 0:  # MPPT_3_Coil_11 - MPPT_2_ON_OFF
             self.mppt_chnl3_on_off_indicator.setText('OFF')
             self.mppt_chnl3_on_off_indicator.setStyleSheet(
-                "background-color: rgb(255, 0, 0);")  # set indicator to red colour
+                    "background-color: rgb(255, 0, 0);")  # set indicator to red colour
         if self.MPPT_3_Coil_11 == 1:
             self.mppt_chnl3_on_off_indicator.setText('ON')
             self.mppt_chnl3_on_off_indicator.setStyleSheet(
-                "background-color: rgb(0, 255, 0);")  # set indicator to green colour
+                    "background-color: rgb(0, 255, 0);")  # set indicator to green colour
 
             # Update Switches
             # Panel 3 DC switches
@@ -567,7 +567,6 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
             self.line_dc_8to3_4.setStyleSheet("color: rgb(0, 0, 255);")
             self.line_dc_8to3_5.setStyleSheet("color: rgb(0, 0, 255);")
 
-
         # -------For dc output connected line-------------------------------------------#
         if (self.p3dc1list_voltage) >= 40:
             self.line_p3dc1.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
@@ -598,7 +597,7 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
             self.line_p5dc2.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
         else:
             self.line_p5dc2.setStyleSheet(
-                "color: rgb(0, 0, 255);")  # set back to blue
+                    "color: rgb(0, 0, 255);")  # set back to blue
 
         if (self.p6dc1list_voltage) >= 40:
             self.line_p6dc1.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
@@ -629,7 +628,6 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
             self.line_p8dc2.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
         else:
             self.line_p8dc2.setStyleSheet("color: rgb(0, 0, 255);")  # set back to blue
-
 
         # -------Update AC line---------------------------------------------------------#
         # Supplied by p3ac1
@@ -761,7 +759,6 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
         if (self.p8ac2_LN_Voltage >= 40 and self.p4_ac2_status == 1):
             self.p8ac2_on_line_ac_7to8 = 1
 
-
         # -------Turn on/off AC interconnected line-------------------------------------#
         # line 3to4
         if (self.p3ac1_on_line_ac_3to4 == 1 or self.p4ac2_on_line_ac_3to4 == 1 or self.p3ac2ccw_on_line_ac_3to4 == 1):
@@ -807,7 +804,6 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
             self.line_ac_8to3_4.setStyleSheet("color: rgb(255, 0, 0);")
             self.line_ac_8to3_5.setStyleSheet("color: rgb(255, 0, 0);")
 
-
         # -------Turn on/off AC output connected line-----------------------------------#
         if (self.p3ac1_LN_Voltage) >= 40:
             self.line_p3ac1.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
@@ -838,7 +834,7 @@ class Hybridgrid(PyQt5.QtWidgets.QWidget, Ui_hybridgridUI):
             self.line_p5ac2.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
         else:
             self.line_p5ac2.setStyleSheet(
-                "color: rgb(255, 0, 0);")  # set back to red
+                    "color: rgb(255, 0, 0);")  # set back to red
 
         if (self.p6ac1_LN_Voltage) >= 40:
             self.line_p6ac1.setStyleSheet("color: rgb(0, 255, 0);")  # set to green
@@ -1409,7 +1405,6 @@ def main(argv):
 
     # create main window
     wnd = Hybridgrid()  # classname
-
 
     # wnd = Initialisation()
     # wnd = QWidget()

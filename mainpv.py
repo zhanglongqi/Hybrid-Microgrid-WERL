@@ -22,7 +22,7 @@ from pvpymodbus import pv
 # from panel6pymodbus import panel6
 
 # Set up client
-from pymodbus3.client.sync import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 
 client = ModbusTcpClient('192.168.0.10')
 

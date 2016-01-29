@@ -23,7 +23,7 @@ from battpymodbus import battery
 from panel5pymodbus import panel5
 
 # Create a Modbus TCP/IP Client
-from pymodbus3.client.sync import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 
 client = ModbusTcpClient('192.168.0.10')
 

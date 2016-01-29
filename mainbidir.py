@@ -9,7 +9,7 @@ import PyQt5.QtCore
 from PyQt5.QtCore import QTimer
 
 # Create a Modbus TCP/IP Client
-from pymodbus3.client.sync import ModbusTcpClient
+from pymodbus.client.sync import ModbusTcpClient
 
 client = ModbusTcpClient('192.168.0.10')
 
